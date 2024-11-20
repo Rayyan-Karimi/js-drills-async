@@ -1,3 +1,0 @@
-./upper.txt
-./LowercaseSentences.txt
-./sorted.txt

@@ -22,7 +22,6 @@ export function createFiles(callback) {
             const content = JSON.stringify({ id: i, value: Math.random() });
             fs.writeFile(filePath, content, (err) => {
                 if (err) return callback(err);
-                console.log(`File '${filePath}' created.`);
                 pendingFiles--;
                 if (pendingFiles === 0) callback(null);
             });
@@ -35,12 +34,12 @@ export function deleteFiles(callback) {
     fs.readdir(dir, (err, files) => {
         if (err) return callback(err);
         let pendingFiles = files.length;
+        console.log(`Files to be deleted.`, files);
         files.forEach(file => {
             const filePath = path.join(dir, file
             );
             fs.unlink(filePath, (err) => {
                 if (err) return callback(err);
-                console.log(`File '${filePath}' deleted.`);
                 pendingFiles--;
                 if (pendingFiles === 0) callback(null);
             });

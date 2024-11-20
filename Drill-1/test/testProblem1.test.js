@@ -5,7 +5,7 @@ try {
     createFiles((err) => {
         if (err) console.error("Error creating files:", err);
         else {
-            console.log("All files created. Starting deletion...");
+            console.log("All files created.");
             deleteFiles((err) => {
                 if (err) console.error("Error deleting files:", err);
                 else console.log("All files deleted.");
@@ -15,3 +15,4 @@ try {
 } catch (err) {
     console.log("Error:", err);
 }
+
